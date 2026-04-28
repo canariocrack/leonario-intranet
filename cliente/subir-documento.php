@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Subir documentación</h1>
+      <h1 class="section-title">Subir documentación</h1>
       <p class="muted">Hola, <?php echo htmlspecialchars($nombre); ?>. Selecciona el expediente y sube un PDF o imagen.</p>
 
       <?php if ($error): ?>
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert ok"><?php echo htmlspecialchars($ok); ?></div>
       <?php endif; ?>
 
-      <form method="post" enctype="multipart/form-data" class="formCard" style="box-shadow:none;">
+      <form method="post" enctype="multipart/form-data" class="formCard flat">
         <div class="field">
           <label>Expediente</label>
           <select name="expediente_id" required>

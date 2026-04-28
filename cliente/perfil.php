@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Mi perfil</h1>
+      <h1 class="section-title">Mi perfil</h1>
       <p class="muted">Actualiza tus datos básicos para mantener tu perfil al día.</p>
 
       <?php if ($error): ?>
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert ok"><?php echo htmlspecialchars($ok); ?></div>
       <?php endif; ?>
 
-      <form method="post" class="formCard" style="box-shadow:none;">
+      <form method="post" class="formCard flat">
         <div class="field">
           <label>Nombre</label>
           <input type="text" name="nombre" required value="<?php echo htmlspecialchars($user['nombre']); ?>">

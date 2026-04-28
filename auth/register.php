@@ -66,10 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main class="main">
   <div class="container">
 
-    <section class="hero" style="background:
-      linear-gradient(135deg, rgba(7,26,43,.90), rgba(11,42,74,.62)),
-      url('../assets/img/oficina.jpg');
-      background-size:cover;background-position:center;">
+    <section class="hero hero--office">
       <div class="content">
         <div>
           <div class="kicker">Alta de usuario</div>
@@ -79,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <div class="formCard">
-      <h2 style="margin:0 0 10px;font-weight:980;">Registro</h2>
+      <h2 class="section-title sm">Registro</h2>
 
       <?php if ($error): ?>
         <div class="alert err"><?php echo htmlspecialchars($error); ?></div>
@@ -114,8 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button class="btn primary" type="submit">Crear cuenta</button>
 
-        <p class="muted" style="margin-top:10px;">
-          ¿Ya tienes cuenta? <a href="login.php" style="color:var(--brand);font-weight:900;">Iniciar sesión</a>
+        <p class="muted mt10">
+          ¿Ya tienes cuenta? <a href="login.php" class="inline-link">Iniciar sesión</a>
         </p>
       </form>
     </div>

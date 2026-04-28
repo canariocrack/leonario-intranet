@@ -60,10 +60,7 @@ try {
 <main class="main">
   <div class="container">
 
-    <section class="hero" style="background:
-      linear-gradient(135deg, rgba(7,26,43,.90), rgba(11,42,74,.62)),
-      url('../assets/img/asesor.jpg');
-      background-size:cover;background-position:center;">
+    <section class="hero hero--asesor">
       <div class="content">
         <div>
           <div class="kicker">Área privada</div>
@@ -81,7 +78,7 @@ try {
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <section class="grid grid3">
       <div class="card"><h3><?php echo (int)$total; ?></h3><p class="muted">Total asignados</p></div>
@@ -89,22 +86,23 @@ try {
       <div class="card"><h3><?php echo (int)$fin; ?></h3><p class="muted">Finalizados</p></div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
-    <section class="card" style="padding:10px;">
-      <div class="nav" style="gap:6px;">
+    <section class="card tabs-card">
+      <div class="nav tabs">
         <a class="<?php echo $tab==='expedientes'?'active':''; ?>" href="dashboard.php?tab=expedientes">Expedientes</a>
         <a class="<?php echo $tab==='clientes'?'active':''; ?>" href="dashboard.php?tab=clientes">Clientes</a>
         <a class="<?php echo $tab==='documentos'?'active':''; ?>" href="dashboard.php?tab=documentos">Documentos</a>
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <?php if ($tab === 'expedientes'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Expedientes asignados</h2>
+        <h2 class="section-title">Expedientes asignados</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -146,13 +144,15 @@ try {
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
 
     <?php elseif ($tab === 'clientes'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Clientes vinculados</h2>
+        <h2 class="section-title">Clientes vinculados</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -187,14 +187,16 @@ try {
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
 
     <?php else: ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Documentos</h2>
+        <h2 class="section-title">Documentos</h2>
         <p class="muted">Descarga documentos de los expedientes asignados.</p>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -230,7 +232,8 @@ try {
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
     <?php endif; ?>
 

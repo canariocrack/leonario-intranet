@@ -70,10 +70,7 @@ try{
 <main class="main">
   <div class="container">
 
-    <section class="hero" style="background:
-      linear-gradient(135deg, rgba(7,26,43,.90), rgba(11,42,74,.62)),
-      url('../assets/img/admin.jpg');
-      background-size:cover;background-position:center;">
+    <section class="hero hero--admin">
       <div class="content">
         <div>
           <div class="kicker">Panel de control</div>
@@ -91,7 +88,7 @@ try{
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <section class="grid grid3">
       <div class="card"><h3><?php echo (int)$total; ?></h3><p class="muted">Expedientes totales</p></div>
@@ -99,7 +96,7 @@ try{
       <div class="card"><h3><?php echo (int)$fin; ?></h3><p class="muted">Finalizados</p></div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <section class="grid grid3">
       <div class="card"><h3><?php echo (int)$uTotal; ?></h3><p class="muted">Usuarios totales</p></div>
@@ -107,22 +104,23 @@ try{
       <div class="card"><h3><?php echo (int)$uCliente; ?></h3><p class="muted">Clientes</p></div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
-    <section class="card" style="padding:10px;">
-      <div class="nav" style="gap:6px;">
+    <section class="card tabs-card">
+      <div class="nav tabs">
         <a class="<?php echo $tab==='expedientes'?'active':''; ?>" href="dashboard.php?tab=expedientes">Expedientes</a>
         <a class="<?php echo $tab==='usuarios'?'active':''; ?>" href="dashboard.php?tab=usuarios">Usuarios</a>
         <a class="<?php echo $tab==='logs'?'active':''; ?>" href="dashboard.php?tab=logs">Logs</a>
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <?php if ($tab === 'expedientes'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Expedientes</h2>
+        <h2 class="section-title">Expedientes</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -165,13 +163,15 @@ try{
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
 
     <?php elseif ($tab === 'usuarios'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Usuarios</h2>
+        <h2 class="section-title">Usuarios</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -198,13 +198,15 @@ try{
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
 
     <?php else: ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Logs del sistema</h2>
+        <h2 class="section-title">Logs del sistema</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -237,7 +239,8 @@ try{
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
     <?php endif; ?>
 

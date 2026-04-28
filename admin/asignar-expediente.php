@@ -93,7 +93,7 @@ if (isset($_GET['ok'])) $ok = "Asesor asignado correctamente.";
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Asignar expediente</h1>
+      <h1 class="section-title">Asignar expediente</h1>
       <p class="muted">Asigna un asesor a un expediente existente.</p>
 
       <?php if ($error): ?>
@@ -102,7 +102,7 @@ if (isset($_GET['ok'])) $ok = "Asesor asignado correctamente.";
         <div class="alert ok"><?php echo htmlspecialchars($ok); ?></div>
       <?php endif; ?>
 
-      <form method="post" class="formCard" style="box-shadow:none;">
+      <form method="post" class="formCard flat">
         <div class="field">
           <label>Expediente</label>
           <select name="expediente_id" required>
