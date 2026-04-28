@@ -49,7 +49,7 @@ session_start();
             <a class="btn soft" href="servicios.php">Ver servicios</a>
           </div>
 
-          <p class="muted" style="margin-top:14px;color:rgba(255,255,255,.78)">
+          <p class="muted hero-note">
             Acceso seguro · Documentación centralizada · Estado de trámites actualizado
           </p>
         </div>
@@ -61,7 +61,7 @@ session_start();
     </section>
 
     <section class="section">
-      <h2 style="margin:0 0 10px;font-weight:980;">Por qué Leonario Asesores</h2>
+      <h2 class="section-title">Por qué Leonario Asesores</h2>
       <div class="grid grid3">
         <div class="card">
           <h3>+10 años</h3>
@@ -79,7 +79,7 @@ session_start();
     </section>
 
     <section class="section">
-      <h2 style="margin:0 0 10px;font-weight:980;">Servicios principales</h2>
+      <h2 class="section-title">Servicios principales</h2>
       <div class="grid grid3">
         <div class="card">
           <h3>Asesoría Fiscal</h3>

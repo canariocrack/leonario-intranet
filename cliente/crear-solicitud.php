@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Enviar solicitud</h1>
+      <h1 class="section-title">Enviar solicitud</h1>
       <p class="muted">Hola, <?php echo htmlspecialchars($nombre); ?>. Describe brevemente el motivo para que el equipo lo gestione.</p>
 
       <?php if ($error): ?>
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert ok"><?php echo htmlspecialchars($ok); ?></div>
       <?php endif; ?>
 
-      <form method="post" class="formCard" style="box-shadow:none;">
+      <form method="post" class="formCard flat">
         <div class="field">
           <label>Motivo / Título</label>
           <input type="text" name="titulo" placeholder="Ej: Revisión IRPF, alta autónomo, consulta laboral..." required>

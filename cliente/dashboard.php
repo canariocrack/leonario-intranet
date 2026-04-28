@@ -61,10 +61,7 @@ try {
 <main class="main">
   <div class="container">
 
-    <section class="hero" style="background:
-      linear-gradient(135deg, rgba(7,26,43,.90), rgba(11,42,74,.62)),
-      url('../assets/img/cliente.jpg');
-      background-size:cover;background-position:center;">
+    <section class="hero hero--cliente">
       <div class="content">
         <div>
           <div class="kicker">Área privada</div>
@@ -82,7 +79,7 @@ try {
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <section class="grid grid3">
       <div class="card">
@@ -99,22 +96,23 @@ try {
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
-    <section class="card" style="padding:10px;">
-      <div class="nav" style="gap:6px;">
+    <section class="card tabs-card">
+      <div class="nav tabs">
         <a class="<?php echo $tab==='expedientes'?'active':''; ?>" href="dashboard.php?tab=expedientes">Mis expedientes</a>
         <a class="<?php echo $tab==='docs'?'active':''; ?>" href="dashboard.php?tab=docs">Mis documentos</a>
         <a class="<?php echo $tab==='perfil'?'active':''; ?>" href="dashboard.php?tab=perfil">Mi perfil</a>
       </div>
     </section>
 
-    <div style="height:14px"></div>
+    <div class="spacer-14"></div>
 
     <?php if ($tab === 'expedientes'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Mis expedientes</h2>
+        <h2 class="section-title">Mis expedientes</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -152,13 +150,15 @@ try {
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
       </section>
 
     <?php elseif ($tab === 'docs'): ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Documentos subidos</h2>
+        <h2 class="section-title">Documentos subidos</h2>
 
+        <div class="table-wrap">
         <table class="table">
           <thead>
             <tr>
@@ -194,15 +194,16 @@ try {
               }
             ?>
           </tbody>
-        </table>
+          </table>
+      </div>
 
-        <div style="height:10px"></div>
+        <div class="spacer-10"></div>
         <a class="btn primary" href="subir-documento.php">Subir un documento</a>
       </section>
 
     <?php else: ?>
       <section class="card">
-        <h2 style="margin:0 0 10px;font-weight:980;">Mi perfil</h2>
+        <h2 class="section-title">Mi perfil</h2>
         <p class="muted">Gestiona tus datos y mantén tu información actualizada.</p>
         <a class="btn primary" href="perfil.php">Editar perfil</a>
       </section>

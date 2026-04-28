@@ -34,10 +34,7 @@ session_start();
 <main class="main">
   <div class="container">
 
-    <section class="hero" style="background:
-      linear-gradient(135deg, rgba(7,26,43,.90), rgba(11,42,74,.62)),
-      url('assets/img/oficina.jpg');
-      background-size:cover;background-position:center;">
+    <section class="hero hero--office">
       <div class="content">
         <div>
           <div class="kicker">Equipo y metodología</div>

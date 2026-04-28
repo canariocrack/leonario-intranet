@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Crear expediente</h1>
+      <h1 class="section-title">Crear expediente</h1>
       <p class="muted">Genera expedientes y (si quieres) asigna asesor desde el inicio.</p>
 
       <?php if ($error): ?>
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert ok"><?php echo htmlspecialchars($ok); ?></div>
       <?php endif; ?>
 
-      <form method="post" class="formCard" style="box-shadow:none;">
+      <form method="post" class="formCard flat">
         <div class="field">
           <label>Título</label>
           <input type="text" name="titulo" required placeholder="Ej: Alta autónomo, IVA trimestral, nóminas...">

@@ -67,15 +67,15 @@ $docs = $dq->fetchAll();
   <div class="container">
 
     <section class="card">
-      <h1 style="margin:0 0 10px;font-weight:980;">Expediente #<?php echo (int)$id; ?></h1>
+      <h1 class="section-title">Expediente #<?php echo (int)$id; ?></h1>
       <p class="muted"><strong>Cliente:</strong> <?php echo htmlspecialchars($exp['cliente_nombre']); ?> · <?php echo htmlspecialchars($exp['cliente_email']); ?></p>
       <p class="muted"><strong>Título:</strong> <?php echo htmlspecialchars($exp['titulo']); ?></p>
       <p class="muted"><strong>Estado actual:</strong> <?php echo htmlspecialchars($exp['estado']); ?></p>
 
-      <div style="height:10px"></div>
+      <div class="spacer-10"></div>
 
-      <div class="formCard" style="box-shadow:none;">
-        <h3 style="margin:0 0 10px;font-weight:950;">Actualizar estado</h3>
+      <div class="formCard flat">
+        <h3 class="section-title sm">Actualizar estado</h3>
         <form method="post" action="actualizar-expediente.php">
           <input type="hidden" name="id" value="<?php echo (int)$id; ?>">
           <div class="field">
@@ -90,10 +90,11 @@ $docs = $dq->fetchAll();
         </form>
       </div>
 
-      <div style="height:12px"></div>
+      <div class="spacer-12"></div>
 
-      <h3 style="margin:0 0 10px;font-weight:950;">Documentos</h3>
-      <table class="table">
+      <h3 class="section-title sm">Documentos</h3>
+      <div class="table-wrap">
+        <table class="table">
         <thead>
           <tr>
             <th>Archivo</th>
@@ -114,7 +115,8 @@ $docs = $dq->fetchAll();
             <?php endforeach; ?>
           <?php endif; ?>
         </tbody>
-      </table>
+        </table>
+      </div>
     </section>
 
   </div>
