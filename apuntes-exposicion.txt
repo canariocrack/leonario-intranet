@@ -1,0 +1,146 @@
+APUNTES PARA EXPOSICIÓN - LEONARIO INTRANET
+Fecha: 17/03/2026
+
+==================================================
+1) FUNCIONES IMPLEMENTADAS (RESUMEN PRÁCTICO)
+==================================================
+
+A) Gestión de expediente (asesor)
+- Permite subir varios documentos de resolución en una sola acción.
+- Mejora visual de botones Ver / Descargar / Borrar para evitar descuadres.
+- Borrado de documento más seguro (validación de permisos + actualización coherente de archivo_resolucion).
+- Al guardar cambios, redirige al dashboard del asesor.
+
+Archivos clave:
+- asesor/ver-expediente.php
+- asesor/actualizar-expediente.php
+- asesor/borrar-documento.php
+
+Funciones técnicas usadas:
+- Control de sesión y rol: session_start, validación con $_SESSION.
+- Base de datos segura: mysqli_prepare, mysqli_stmt_bind_param, mysqli_stmt_execute, mysqli_fetch_assoc.
+- Subida de archivos: $_FILES, move_uploaded_file, basename, pathinfo, random_bytes, time.
+- Borrado de archivos: is_file, unlink.
+- Redirecciones: header(Location: ...), exit.
+- Interfaz: CSS Grid/Flex para acciones y layout estable.
+
+
+B) Vista de expediente (admin)
+- Se ajustó el bloque de acciones de documentos para que tenga comportamiento visual consistente con asesor.
+
+Archivo clave:
+- admin/ver-expediente.php
+
+Funciones técnicas usadas:
+- Render condicional PHP según tipo de archivo.
+- CSS de botones y contenedores flexibles.
+
+
+C) Panel cliente - Mi perfil
+- Rediseño de Mi perfil en tarjetas de datos para mejor legibilidad (sin solapes de texto).
+
+Archivo clave:
+- cliente/dashboard.php
+
+Funciones técnicas usadas:
+- Render dinámico de datos del usuario.
+- Estructura responsive con CSS Grid.
+
+
+D) Panel cliente - Mis documentos
+- Se rediseñó la pestaña de documentos.
+- Se eliminó la visualización de documentos del asesor en esa pestaña (solo documentos del cliente).
+- Se organizaron documentos por expediente.
+- Se añadió botón Ver y se cambió para visor embebido (modal), no pestaña nueva.
+
+Archivo clave:
+- cliente/dashboard.php
+
+Funciones técnicas usadas:
+- Consulta filtrada por cliente y autor del documento.
+- Agrupación por expediente en PHP (array asociativo).
+- Detección de tipo de archivo (PDF/imagen) con pathinfo.
+- Visor embebido con JS:
+  - abrirVisor(id, nombre, tipo)
+  - cerrarVisor()
+  - eventos click, overlay y tecla Escape.
+
+
+E) Descarga/visualización de documentos
+- Flujo unificado por endpoint de descarga con permisos por rol.
+- Soporte inline para visor embebido.
+
+Archivo clave:
+- files/download.php
+
+Funciones técnicas usadas:
+- Verificación de permisos por rol y expediente.
+- Detección de archivo y MIME: is_file, mime_content_type.
+- Cabeceras HTTP para inline/attachment.
+
+==================================================
+2) JUSTIFICACIÓN TÉCNICA (PARA DECIR EN CLASE)
+==================================================
+
+1. Seguridad:
+- Se usan consultas preparadas para evitar inyección SQL.
+- Cada acción valida sesión, rol y pertenencia (cliente/asesor/admin).
+
+2. Escalabilidad funcional:
+- Se pasó de archivo único a subida múltiple en asesor.
+- Se mantuvo compatibilidad con input antiguo (archivo_res).
+
+3. UX y mantenibilidad:
+- Botones y acciones se normalizaron con Flex para evitar roturas visuales.
+- Mis documentos se reorganizó por expediente para lectura más natural.
+
+4. Integridad de datos:
+- Al borrar documentos de asesor, se recalcula archivo_resolucion para no dejar referencias inconsistentes.
+
+==================================================
+3) GUION CORTO DE EXPOSICIÓN (5-7 MIN)
+==================================================
+
+1) Problema inicial (30-45s)
+- Había límites funcionales y problemas visuales en gestión documental.
+
+2) Qué se mejoró (2 min)
+- Subida múltiple de respuestas del asesor.
+- Botones estables y consistentes en asesor/admin.
+- Redirección post-guardado al dashboard.
+- Panel cliente: perfil legible + documentos por expediente + visor embebido.
+
+3) Demo funcional (2-3 min)
+- Asesor: abrir expediente, adjuntar varios archivos, guardar, verificar redirección.
+- Cliente: entrar a Mis documentos, ver agrupación por expediente, abrir Ver en visor embebido, descargar.
+
+4) Cierre técnico (45s)
+- Seguridad por roles + consultas preparadas + UX mejorada + coherencia de datos.
+
+==================================================
+4) PREGUNTAS PROBABLES Y RESPUESTAS RÁPIDAS
+==================================================
+
+P: ¿Cómo controlas que un usuario no vea archivos de otro?
+R: Se valida sesión, rol y relación con expediente antes de permitir descarga/visualización.
+
+P: ¿Por qué agrupaste por expediente?
+R: Mejora usabilidad cuando hay muchos documentos y se adapta al flujo real de trabajo.
+
+P: ¿Cómo decidiste visor embebido y no pestaña nueva?
+R: Reduce fricción de navegación y permite revisar varios archivos sin salir del dashboard.
+
+P: ¿Qué pasaba al borrar documentos del asesor?
+R: Antes podía quedar inconsistente archivo_resolucion; ahora se recalcula el último documento válido.
+
+==================================================
+5) CHECKLIST PARA SACAR BUENA NOTA (RÚBRICA)
+==================================================
+
+- Explicación técnica clara (qué, cómo y por qué).
+- Justificación de decisiones (seguridad, UX, consistencia, escalabilidad).
+- Demo fluida sin improvisación.
+- Estructura: introducción -> desarrollo -> demo -> cierre.
+- Lenguaje técnico correcto y respuestas seguras a preguntas.
+
+FIN
